@@ -10,5 +10,5 @@ OpenAI API Key: https://platform.openai.com/account/api-keys
 Bot Token: https://discord.com/developers/applications
 
 
-run npm install
+run `npm install` then
 run locally with `npm start`

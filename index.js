@@ -23,11 +23,11 @@ const openai = new OpenAIApi(
   return message.reply(`${message.content}`);
 }); Working ✅ */
 
-client.on("messageCreate", async function (message) {
+client.on("messageCreate", async (message) => {
   if (message.author.bot) return;
 
   try {
-    const response = await openai.createChatCompletion({
+    const { data } = await openai.createChatCompletion({
       model: "gpt-3.5-turbo",
       messages: [
         {
@@ -38,11 +38,11 @@ client.on("messageCreate", async function (message) {
       ],
     });
 
-    const content = response.data.choices[0].message;
-    return message.reply(content);
+    const content = data.choices[0].message;
+    message.reply(content);
   } catch (err) {
     console.error(err);
-    return message.reply("As an AI robot, I made an error.");
+    message.reply("As an AI robot, I made an error.");
   }
 });
 

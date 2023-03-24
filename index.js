@@ -41,6 +41,7 @@ client.on("messageCreate", async function (message) {
     const content = response.data.choices[0].message;
     return message.reply(content);
   } catch (err) {
+    console.error(err);
     return message.reply("As an AI robot, I made an error.");
   }
 });

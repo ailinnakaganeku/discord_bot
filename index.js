@@ -17,3 +17,27 @@ const openai = new OpenAIApi(
     apiKey: process.env.OPENAI_API_KEY,
   })
 );
+
+client.on("messageCreate", async function (message) {
+  if (message.author.bot) return;
+
+  try {
+    const response = await openai.createChatCompletion({
+      model: "gpt-3.5-turbo",
+      messages: [
+        {
+          role: "system",
+          content: "You are a helpful assistant who responds succinctly.",
+        },
+        { role: "user", content: message.content },
+      ],
+    });
+
+    const content = response.data.choices[0].message;
+    return message.reply(content);
+  } catch (err) {
+    return message.reply("As an AI robot, I made an error.");
+  }
+});
+
+client.login(process.env.BOT_TOKEN);

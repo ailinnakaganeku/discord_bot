@@ -6,11 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "module",
-    "url": "discord_bot"
-  },
-  "author": "ailinnakaganeku",
+  "keywords": [],
+  "type": "module",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "discord.js": "^14.8.0",

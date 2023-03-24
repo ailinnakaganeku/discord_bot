@@ -21,7 +21,7 @@ const openai = new OpenAIApi(
 /* client.on("messageCreate", function (message) {
   if (message.author.bot) return;
   return message.reply(`${message.content}`);
-}); */
+}); Working ✅ */
 
 client.on("messageCreate", async function (message) {
   if (message.author.bot) return;
